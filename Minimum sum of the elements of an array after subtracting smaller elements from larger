@@ -1,0 +1,32 @@
+// CPP program to Find the minimum sum 
+// of given array after applying given operation. 
+#include <bits/stdc++.h> 
+using namespace std; 
+
+// Function to Find the minimum sum 
+// of given array after applying given operation. 
+int MinSum(int a[], int n) 
+{ 
+	// to store final gcd value 
+	int gcd = a[0]; 
+
+	// get gcd of the whole array 
+	for (int i = 1; i < n; i++) 
+		gcd = __gcd(a[i], gcd); 
+
+	return n * gcd; 
+} 
+
+// Driver code 
+int main() 
+{ 
+
+	int a[] = { 20, 14, 6, 8, 15 }; 
+
+	int n = sizeof(a) / sizeof(a[0]); 
+
+	// function call 
+	cout << MinSum(a, n); 
+
+	return 0; 
+}
