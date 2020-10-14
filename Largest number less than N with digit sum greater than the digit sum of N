@@ -1,0 +1,49 @@
+// C++ implementation of the approach 
+#include <iostream> 
+using namespace std; 
+
+// Function to return the sum of the digits of n 
+int sumOfDigits(int n) 
+{ 
+	int res = 0; 
+
+	// Loop for each digit of the number 
+	while (n > 0) { 
+		res += n % 10; 
+		n /= 10; 
+	} 
+
+	return res; 
+} 
+
+// Function to return the greatest 
+// number less than n such that 
+// the sum of its digits is greater 
+// than the sum of the digits of n 
+int findNumber(int n) 
+{ 
+
+	// Starting from n-1 
+	int i = n - 1; 
+
+	// Check until 1 
+	while (i > 0) { 
+
+		// If i satisfies the given condition 
+		if (sumOfDigits(i) > sumOfDigits(n)) 
+			return i; 
+		i--; 
+	} 
+
+	// If the condition is not satisfied 
+	return -1; 
+} 
+
+// Driver code 
+int main() 
+{ 
+	int n = 824; 
+	cout << findNumber(n); 
+
+	return 0; 
+}
